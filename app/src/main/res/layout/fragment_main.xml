@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/directions_text_welcome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/directions_welcome_started"/>
+
+    <TextView
+        android:id="@+id/directions_text_detailed"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/directions_detailed_started"/>
+
+    <TextView
+        android:id="@+id/directions_text_days_sober"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/directions_days_sober"/>
+
+    <TextView
+        android:id="@+id/directions_text_days"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"/>
+
+    <Button
+        android:id="@+id/directions_stop_start_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/directions_stop"/>
+</LinearLayout>
