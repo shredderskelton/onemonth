@@ -28,9 +28,19 @@ public class ProgressManager {
         preferences.clear();
     }
 
-    public long daysSober(){
+    public long daysSober() {
         long ONE_DAY_IN_MS = TimeUnit.MILLISECONDS.convert(1, TimeUnit.DAYS); //gives 86400000
         long millisecondsSober = preferences.getLastCheckIn() - preferences.getStart();
         return millisecondsSober / ONE_DAY_IN_MS;
+    }
+
+    public boolean shouldRemind() {
+        return isStarted() && daysSince(preferences.getLastCheckIn()) > 0;
+    }
+
+    private int daysSince(long time) {
+        long ONE_DAY_IN_MS = TimeUnit.MILLISECONDS.convert(1, TimeUnit.DAYS); //gives 86400000
+        long millisecondsSober = System.currentTimeMillis() - time;
+        return (int) (millisecondsSober / ONE_DAY_IN_MS);
     }
 }

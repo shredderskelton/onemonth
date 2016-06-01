@@ -23,7 +23,6 @@
         android:id="@+id/directions_days_sober_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
         android:orientation="vertical"
         android:padding="@dimen/Android_Design_rhythmHalve">
 
@@ -39,31 +38,55 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:textSize="@dimen/textSizeHeading"
+            android:textSize="50sp"
             tools:text="12"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/directions_days_sober_reminder_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <TextView
-            android:paddingTop="@dimen/Android_Design_rhythmThird"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:paddingTop="@dimen/Android_Design_rhythmThird"
             android:text="@string/directions_days_sober_question"/>
 
-        <Button
-            android:text="@string/checkin"
-            android:id="@+id/directions_check_in_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-        <Button
-            android:id="@+id/directions_reset_button"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/directions_reset"/>
+            android:gravity="right"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/directions_stop_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/Android_Design_rhythmSixth"
+                android:text="@string/directions_quit"/>
+
+            <Button
+                android:id="@+id/directions_reset_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/Android_Design_rhythmSixth"
+                android:text="@string/no"/>
+
+            <Button
+                android:id="@+id/directions_check_in_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/yes"/>
+
+        </LinearLayout>
     </LinearLayout>
 
     <Button
-        android:id="@+id/directions_stop_start_button"
-        android:layout_width="match_parent"
+        android:id="@+id/directions_start_button"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/directions_stop"/>
+        android:text="@string/directions_start"
+        android:layout_gravity="right"/>
 </LinearLayout>

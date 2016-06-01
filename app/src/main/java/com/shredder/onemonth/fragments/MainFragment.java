@@ -21,11 +21,12 @@ import butterknife.OnClick;
 public class MainFragment extends BaseFragment implements BackButtonSupportFragment {
 
     @BindString(R.string.directions_title) String title;
-    @Bind(R.id.directions_stop_start_button) Button startStopButton;
+    @Bind(R.id.directions_start_button) Button startButton;
     @Bind(R.id.directions_text_detailed) TextView detailsTextView;
     @Bind(R.id.directions_text_welcome) TextView welcomeTextView;
     @Bind(R.id.directions_text_days) TextView daysTextView;
     @Bind(R.id.directions_days_sober_view) View daysSoberView;
+    @Bind(R.id.directions_days_sober_reminder_view) View daysSoberReminderView;
 
     private ProgressManager progressManager;
     private AlarmBuilder alarmBuilder;
@@ -45,11 +46,13 @@ public class MainFragment extends BaseFragment implements BackButtonSupportFragm
     }
 
     private void onStateChange() {
-        startStopButton.setText(progressManager.isStarted() ? R.string.directions_stop : R.string.directions_start);
-        detailsTextView.setText(progressManager.isStarted() ? R.string.directions_detailed_started : R.string.directions_detailed);
-        welcomeTextView.setText(progressManager.isStarted() ? R.string.directions_welcome_started : R.string.directions_welcome);
-        daysTextView.setText(progressManager.isStarted() ? String.valueOf(progressManager.daysSober()) : "");
-        daysSoberView.setVisibility(progressManager.isStarted() ? View.VISIBLE : View.GONE);
+        boolean started = progressManager.isStarted();
+        startButton.setVisibility(started ? View.GONE : View.VISIBLE);
+        detailsTextView.setText(started ? R.string.directions_detailed_started : R.string.directions_detailed);
+        welcomeTextView.setText(started ? R.string.directions_welcome_started : R.string.directions_welcome);
+        daysTextView.setText(started ? String.valueOf(progressManager.daysSober()) : "");
+        daysSoberView.setVisibility(started ? View.VISIBLE : View.GONE);
+        daysSoberReminderView.setVisibility(started && progressManager.shouldRemind() ? View.VISIBLE : View.GONE);
     }
 
     @Override
@@ -62,15 +65,17 @@ public class MainFragment extends BaseFragment implements BackButtonSupportFragm
         return false; //delegated
     }
 
-    @OnClick(R.id.directions_stop_start_button)
+    @OnClick(R.id.directions_start_button)
     public void onStartPressed() {
-        if (progressManager.isStarted()) {
-            alarmBuilder.cancelAlarm();
-            progressManager.stop();
-        } else {
-            alarmBuilder.createAlarm();
-            progressManager.start();
-        }
+        alarmBuilder.createAlarm();
+        progressManager.start();
+        onStateChange();
+    }
+
+    @OnClick(R.id.directions_stop_button)
+    public void onStopPressed() {
+        alarmBuilder.cancelAlarm();
+        progressManager.stop();
         onStateChange();
     }
 

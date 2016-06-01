@@ -18,16 +18,16 @@
     <style name="Dry.Button.Borderless" parent="@android:style/Widget.Button">
         <item name="android:background">@drawable/background_button_borderless_selector</item>
         <item name="android:textSize">@dimen/textSizeNormal</item>
-        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textColor">@drawable/text_color_button_borderless_selector</item>
         <item name="android:textAllCaps">true</item>
         <item name="android:minHeight">@dimen/Android_Design_rhythm</item>
+        <item name="android:layout_gravity">right</item>
+        <item name="android:gravity">center</item>
+        <item name="android:padding">@dimen/Android_Design_rhythmThird</item>
     </style>
 
     <style name="Dry.TextView" parent="@android:style/Widget.TextView">
         <item name="android:textSize">@dimen/textSizeNormal</item>
         <item name="android:textColor">@color/black</item>
     </style>
-
-    <color name="white">@android:color/white</color>
-    <color name="black">@android:color/black</color>
 </resources>
