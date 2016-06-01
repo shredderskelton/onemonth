@@ -6,6 +6,8 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:buttonStyle">@style/Dry.Button.Borderless</item>
+        <item name="android:textViewStyle">@style/Dry.TextView</item>
     </style>
 
     <style name="AppTheme.NoActionBar">
@@ -13,8 +15,19 @@
         <item name="windowNoTitle">true</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="Dry.Button.Borderless" parent="@android:style/Widget.Button">
+        <item name="android:background">@drawable/background_button_borderless_selector</item>
+        <item name="android:textSize">@dimen/textSizeNormal</item>
+        <item name="android:textColor">?attr/colorPrimary</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:minHeight">@dimen/Android_Design_rhythm</item>
+    </style>
 
-    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
+    <style name="Dry.TextView" parent="@android:style/Widget.TextView">
+        <item name="android:textSize">@dimen/textSizeNormal</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
 
+    <color name="white">@android:color/white</color>
+    <color name="black">@android:color/black</color>
 </resources>

@@ -3,4 +3,22 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+
+    <dimen name="Android_Design_rhythmDouble">96dp</dimen>
+    <dimen name="Android_Design_rhythmOneAndAHalf">72dp</dimen>
+    <dimen name="Android_Design_rhythmOneAndAThird">64dp</dimen>
+    <dimen name="Android_Design_rhythm">48dp</dimen>
+    <dimen name="Android_Design_rhythmThreeQuarters">36dp</dimen>
+    <dimen name="Android_Design_rhythmHalve">24dp</dimen>
+    <dimen name="Android_Design_rhythmThird">16dp</dimen>
+    <dimen name="Android_Design_rhythmSixth">8dp</dimen>
+    <dimen name="Android_Design_rhythmTwelfth">4dp</dimen>
+    <dimen name="Android_Design_minButtonWidth">88dp</dimen>
+
+    <dimen name="textSizeMicro">11sp</dimen>
+    <dimen name="textSizeSmall">14sp</dimen>
+    <dimen name="textSizeNormal">18sp</dimen>
+    <dimen name="textSizeLarge">22sp</dimen>
+    <dimen name="textSizeHeading">26sp</dimen>
+
 </resources>

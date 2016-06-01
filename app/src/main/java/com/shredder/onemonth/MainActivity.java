@@ -10,7 +10,6 @@ import android.widget.ListView;
 
 import com.shredder.onemonth.base.BaseActivity;
 import com.shredder.onemonth.fragments.MainFragment;
-import com.shredder.onemonth.fragments.BookDetailsFragment;
 import com.shredder.onemonth.fragments.SettingsFragment;
 
 import butterknife.Bind;
@@ -63,7 +62,7 @@ public class MainActivity extends BaseActivity {
     }
 
     private void setupNavigationItems() {
-        String[] navigationItems = {"Books", "Random Book", "Settings"};
+        String[] navigationItems = {"Home", "Settings"};
         ArrayAdapter<String> mAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, navigationItems);
         mDrawerList.setAdapter(mAdapter);
     }
@@ -75,9 +74,6 @@ public class MainActivity extends BaseActivity {
                 showBookingList();
                 break;
             case 1:
-                showRandom();
-                break;
-            case 2:
                 showSettings();
                 break;
             default:
@@ -88,12 +84,6 @@ public class MainActivity extends BaseActivity {
 
     private void showSettings() {
         add(SettingsFragment.newInstance());
-    }
-
-    private void showRandom() {
-        String[] titles = getResources().getStringArray(R.array.book_titles);
-        long randomIndex = System.currentTimeMillis() % (long) (titles.length - 1);
-        add(BookDetailsFragment.newInstance(titles[(int) randomIndex]));
     }
 
     private void showBookingList() {

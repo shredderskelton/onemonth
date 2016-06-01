@@ -13,4 +13,7 @@
     <string name="yes">yes</string>
     <string name="notification_question">It\'s been a while since your last confession. Are you still sober?</string>
     <string name="directions_days_sober">Days sober:</string>
+    <string name="checkin">Yep, still on the wagon</string>
+    <string name="directions_days_sober_question">Are you still sober? Press the button below to check in</string>
+    <string name="directions_reset">No, I want to start again</string>
 </resources>

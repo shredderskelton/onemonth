@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest package="com.shredder.onemonth"
           xmlns:android="http://schemas.android.com/apk/res/android">
-
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_local_drink_blue_600_48dp"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -18,7 +17,6 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-
         <receiver android:name="com.shredder.onemonth.receivers.OnAlarmBroadcastReceiver"/>
         <receiver android:name="com.shredder.onemonth.receivers.OnNotificationClickedBroadcastReceiver">
             <intent-filter>
@@ -26,7 +24,5 @@
                 <action android:name="com.shredder.onemonth.no"/>
             </intent-filter>
         </receiver>
-
     </application>
-
 </manifest>
