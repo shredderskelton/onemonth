@@ -80,3 +80,5 @@ def computeVersionName() {
     println "Full versionName is " + fullVersionString
     return fullVersionString
 }
+
+apply plugin: 'com.google.gms.google-services'

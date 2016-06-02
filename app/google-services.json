@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "698420068425",
+    "firebase_url": "https://dry-july.firebaseio.com",
+    "project_id": "dry-july",
+    "storage_bucket": "dry-july.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:698420068425:android:6fe8cb61948a97aa",
+        "android_client_info": {
+          "package_name": "com.shredder.onemonth"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "698420068425-vp0s9p0v8irp7ossvco37j54ragv88up.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBn_0uTU11lmBm9IBmv_JzDY6Q8xWvev_c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
