@@ -4,8 +4,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
-import com.shredder.onemonth.build.AlarmBuilder;
-import com.shredder.onemonth.build.NotificationBuilder;
+import com.shredder.onemonth.builders.AlarmBuilder;
+import com.shredder.onemonth.builders.NotificationBuilder;
 import com.shredder.onemonth.progress.ProgressManager;
 
 public class OnAlarmBroadcastReceiver extends BroadcastReceiver {

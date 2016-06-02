@@ -10,7 +10,7 @@ import android.widget.TextView;
 import com.shredder.onemonth.R;
 import com.shredder.onemonth.base.BackButtonSupportFragment;
 import com.shredder.onemonth.base.BaseFragment;
-import com.shredder.onemonth.build.AlarmBuilder;
+import com.shredder.onemonth.builders.AlarmBuilder;
 import com.shredder.onemonth.progress.ProgressManager;
 
 import butterknife.Bind;
