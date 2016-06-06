@@ -4,8 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.shredder.onemonth.R;
 import com.shredder.onemonth.base.BackButtonSupportFragment;
@@ -21,12 +21,9 @@ import butterknife.OnClick;
 public class MainFragment extends BaseFragment implements BackButtonSupportFragment {
 
     @BindString(R.string.directions_title) String title;
-    @Bind(R.id.directions_start_button) Button startButton;
-    @Bind(R.id.directions_text_detailed) TextView detailsTextView;
-    @Bind(R.id.directions_text_welcome) TextView welcomeTextView;
+    @Bind(R.id.directions_start_view) View startView;
     @Bind(R.id.directions_text_days) TextView daysTextView;
     @Bind(R.id.directions_days_sober_view) View daysSoberView;
-    @Bind(R.id.directions_days_sober_reminder_view) View daysSoberReminderView;
 
     private ProgressManager progressManager;
     private AlarmBuilder alarmBuilder;
@@ -47,12 +44,15 @@ public class MainFragment extends BaseFragment implements BackButtonSupportFragm
 
     private void onStateChange() {
         boolean started = progressManager.isStarted();
-        startButton.setVisibility(started ? View.GONE : View.VISIBLE);
-        detailsTextView.setText(started ? R.string.directions_detailed_started : R.string.directions_detailed);
-        welcomeTextView.setText(started ? R.string.directions_welcome_started : R.string.directions_welcome);
         daysTextView.setText(started ? String.valueOf(progressManager.daysSober()) : "");
+        startView.setVisibility(started ? View.GONE : View.VISIBLE);
         daysSoberView.setVisibility(started ? View.VISIBLE : View.GONE);
-        daysSoberReminderView.setVisibility(started && progressManager.shouldRemind() ? View.VISIBLE : View.GONE);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        onStateChange();
     }
 
     @Override
@@ -85,12 +85,14 @@ public class MainFragment extends BaseFragment implements BackButtonSupportFragm
         progressManager.stop();
         alarmBuilder.createAlarm();
         progressManager.start();
+        Toast.makeText(getActivity(), R.string.toast_counter_reset, Toast.LENGTH_SHORT).show();
         onStateChange();
     }
 
-    @OnClick(R.id.directions_check_in_button)
+    @OnClick({R.id.directions_check_in_button})
     public void onCheckinPressed() {
         progressManager.checkIn();
         onStateChange();
+        Toast.makeText(getActivity(), R.string.toast_checkin_complete, Toast.LENGTH_SHORT).show();
     }
 }

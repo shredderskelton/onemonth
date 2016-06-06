@@ -13,27 +13,26 @@ import com.shredder.onemonth.fragments.MainFragment;
 import com.shredder.onemonth.fragments.SettingsFragment;
 
 import butterknife.Bind;
+import butterknife.BindString;
 import butterknife.ButterKnife;
 import butterknife.OnItemClick;
 
 public class MainActivity extends BaseActivity {
 
-    @Bind(R.id.main_navigation)
-    ListView mDrawerList;
-
-    @Bind(R.id.main_drawer)
-    DrawerLayout mDrawerLayout;
-
-    @Bind(R.id.main_toolbar)
-    Toolbar toolbar;
+    @Bind(R.id.main_navigation) ListView mDrawerList;
+    @Bind(R.id.main_drawer) DrawerLayout mDrawerLayout;
+    @Bind(R.id.main_toolbar) Toolbar toolbar;
 
     private ActionBarDrawerToggle drawerToggle;
+
+    @BindString(R.string.nav_home) String homeStr;
+    @BindString(R.string.nav_settings) String settingsStr;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-//        setContentView(R.layout.activity_main);
-        setContentView(R.layout.activity_main_toolbar_on_top);
+        setContentView(R.layout.activity_main);
+//        setContentView(R.layout.activity_main_toolbar_on_top);
         ButterKnife.bind(this);
         setupNavigationItems();
         setupDrawerAndToggle();
@@ -62,7 +61,7 @@ public class MainActivity extends BaseActivity {
     }
 
     private void setupNavigationItems() {
-        String[] navigationItems = {"Home", "Settings"};
+        String[] navigationItems = {homeStr, settingsStr};
         ArrayAdapter<String> mAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, navigationItems);
         mDrawerList.setAdapter(mAdapter);
     }

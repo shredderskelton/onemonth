@@ -43,4 +43,8 @@ public class ProgressManager {
         long millisecondsSober = System.currentTimeMillis() - time;
         return (int) (millisecondsSober / ONE_DAY_IN_MS);
     }
+
+    public void overrideStartDate(Long time) {
+        preferences.setStart(time);
+    }
 }
