@@ -50,8 +50,8 @@ public class MainFragment extends BaseFragment implements BackButtonSupportFragm
     }
 
     @Override
-    public void onResume() {
-        super.onResume();
+    public void onStart() {
+        super.onStart();
         onStateChange();
     }
 
@@ -92,6 +92,8 @@ public class MainFragment extends BaseFragment implements BackButtonSupportFragm
     @OnClick({R.id.directions_check_in_button})
     public void onCheckinPressed() {
         progressManager.checkIn();
+        alarmBuilder.cancelAlarm();
+        alarmBuilder.resetAlarm();
         onStateChange();
         Toast.makeText(getActivity(), R.string.toast_checkin_complete, Toast.LENGTH_SHORT).show();
     }

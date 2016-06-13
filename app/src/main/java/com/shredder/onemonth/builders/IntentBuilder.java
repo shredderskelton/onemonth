@@ -12,6 +12,7 @@ public class IntentBuilder {
     public static final int INTENT_ACTION_QUICKRESPONSE_CODE = 565684;
     public static final String INTENT_ACTION_QUICKRESPONSE_YES = "com.shredder.onemonth.yes";
     public static final String INTENT_ACTION_QUICKRESPONSE_NO = "com.shredder.onemonth.no";
+    public static final String INTENT_ACTION_QUICKRESPONSE_IGNORE = "com.shredder.onemonth.ignore";
 
     private final Context context;
 
@@ -35,7 +36,12 @@ public class IntentBuilder {
         return createPendingIntent(intent);
     }
 
-    private PendingIntent createPendingIntent(Intent yesIntent) {
-        return PendingIntent.getBroadcast(context, INTENT_ACTION_QUICKRESPONSE_CODE, yesIntent, 0);
+    private PendingIntent createPendingIntent(Intent intent) {
+        return PendingIntent.getBroadcast(context, INTENT_ACTION_QUICKRESPONSE_CODE, intent, 0);
+    }
+
+    public PendingIntent createIntentIgnore() {
+        Intent intent = new Intent(INTENT_ACTION_QUICKRESPONSE_IGNORE);
+        return createPendingIntent(intent);
     }
 }

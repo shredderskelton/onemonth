@@ -10,7 +10,6 @@ import com.shredder.onemonth.BuildConfig;
 import com.shredder.onemonth.receivers.OnAlarmBroadcastReceiver;
 
 import java.util.Calendar;
-import java.util.concurrent.TimeUnit;
 
 public class AlarmBuilder {
     private static final int ALARM_REQUEST_CODE = 45435;
@@ -21,32 +20,22 @@ public class AlarmBuilder {
     }
 
     public void createAlarm() {
-        Calendar calendar = createAlarmSchedule();
-        long repeatingInterval = createRepeatingInterval();
+        Calendar calendar = createAlarmDate();
         PendingIntent pendingIntent = createAlarmIntent();
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
-
-        alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), repeatingInterval, pendingIntent);
-    }
-
-    private long createRepeatingInterval() {
-        if (BuildConfig.DEBUG) {
-            return TimeUnit.MILLISECONDS.convert(15, TimeUnit.SECONDS);
-        }
-
-        return AlarmManager.INTERVAL_DAY;
+        alarmManager.set(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), pendingIntent);
     }
 
     @NonNull
-    private Calendar createAlarmSchedule() {
+    private Calendar createAlarmDate() {
         if (BuildConfig.DEBUG) {
             return createDebugAlarmSchedule();
         }
 
         Calendar calendar = Calendar.getInstance();
-        calendar.set(Calendar.HOUR_OF_DAY, 10);
         calendar.set(Calendar.MINUTE, 0);
         calendar.set(Calendar.SECOND, 0);
+        calendar.add(Calendar.DAY_OF_YEAR, 1);
         return calendar;
     }
 
@@ -65,5 +54,10 @@ public class AlarmBuilder {
     public void cancelAlarm() {
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         alarmManager.cancel(createAlarmIntent());
+    }
+
+    public void resetAlarm() {
+        cancelAlarm();
+        createAlarm();
     }
 }

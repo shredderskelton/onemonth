@@ -31,7 +31,7 @@ public class SettingsFragment extends BaseFragment {
 
     @Override
     protected String getTitle() {
-        return "SettingsFragment";
+        return "Settings";
     }
 
     @OnClick(R.id.settings_timestamp_entry_button)

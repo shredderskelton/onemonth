@@ -34,6 +34,7 @@ public class NotificationBuilder {
                 .setTicker(appName).setWhen(0)
                 .addAction(R.drawable.ic_done_black_24dp, yes, creator.createIntentYes())
                 .addAction(R.drawable.ic_clear_black_24dp, no, creator.createIntentNo())
+                .setDeleteIntent(creator.createIntentIgnore())
                 .setSmallIcon(R.drawable.ic_local_drink_blue_600_48dp)
                 .build();
 

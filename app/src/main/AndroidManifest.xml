@@ -22,6 +22,7 @@
             <intent-filter>
                 <action android:name="com.shredder.onemonth.yes"/>
                 <action android:name="com.shredder.onemonth.no"/>
+                <action android:name="com.shredder.onemonth.ignore"/>
             </intent-filter>
         </receiver>
     </application>
