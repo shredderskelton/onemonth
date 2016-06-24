@@ -10,13 +10,11 @@ import com.shredder.onemonth.builders.NotificationBuilder;
 import com.shredder.onemonth.progress.ProgressManager;
 
 public class OnNotificationClickedBroadcastReceiver extends BroadcastReceiver {
-    private ProgressManager progressManager;
-    private AlarmBuilder alarmManager;
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        progressManager = new ProgressManager(context);
-        alarmManager = new AlarmBuilder(context);
+        ProgressManager progressManager = new ProgressManager(context);
+        AlarmBuilder alarmManager = new AlarmBuilder(context);
         if (intent.getAction().equalsIgnoreCase(IntentBuilder.INTENT_ACTION_QUICKRESPONSE_YES)) {
             progressManager.checkIn();
         }

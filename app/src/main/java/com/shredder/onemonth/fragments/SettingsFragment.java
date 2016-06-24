@@ -16,7 +16,7 @@ import butterknife.OnClick;
 
 public class SettingsFragment extends BaseFragment {
 
-    @Bind(R.id.settings_timestamp_entry) EditText overrrideTimestampEditText;
+    @Bind(R.id.settings_timestamp_entry) EditText overrideTimestampEditText;
 
     public static SettingsFragment newInstance() {
         return new SettingsFragment();
@@ -36,6 +36,6 @@ public class SettingsFragment extends BaseFragment {
 
     @OnClick(R.id.settings_timestamp_entry_button)
     public void onOverride() {
-        new ProgressManager(getActivity()).overrideStartDate(Long.valueOf(overrrideTimestampEditText.getText().toString()));
+        new ProgressManager(getActivity()).overrideStartDate(Long.valueOf(overrideTimestampEditText.getText().toString()));
     }
 }
